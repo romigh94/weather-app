@@ -37,21 +37,27 @@ function App() {
 
 
   return (
-    <div className="App">
+
+    <div className="App-warm">
 
       <main>
         <div className="search-box">
             <input type="text" className="searchbar" placeholder="Sök..." 
             onChange={e => setQuery(e.target.value)} value={query} onKeyPress={searchbar}/>
         </div>
-        <div className="location-box">
-            <div className="location">{weather.name}</div>
-            <div className="date">{dateToday()}</div>
+
+        {typeof weather.main != "undefined" ? (
+        <div>
+          <div className="location-box">
+                <div className="location">{weather.name}, {weather.sys.country}</div>
+                <div className="date">{dateToday()}</div>
+          </div>
+                <div className="weather-box">
+                <div className="temp">{Math.round(weather.main.temp)}ºC</div>
+                <div className="weather">Soligt</div>
+          </div>
         </div>
-        <div className="weather-box">
-          <div className="temp">13ºc</div>
-          <div className="weather">Soligt</div>
-        </div>
+          ) : ('')}
       </main>
 
     </div>
