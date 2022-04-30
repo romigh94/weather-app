@@ -38,7 +38,7 @@ function App() {
 
   return (
 
-    <div className={(typeof weather.main != undefined) ? 
+    <div className={(weather.main !== undefined) ? 
       ((weather.main.temp > 10) ? 
        'App-warm' : 'App') : 'App'}>
 
@@ -48,10 +48,10 @@ function App() {
             onChange={e => setQuery(e.target.value)} value={query} onKeyPress={searchbar}/>
         </div>
 
-        {typeof weather.main != "undefined" ? (
+        {weather.main !== undefined ? (
         <div>
           <div className="location-box">
-                <div className="location">{weather.name}, {weather.sys.country}</div>
+                <div className="location">{weather.name} {weather.sys.country}</div>
                 <div className="date">{dateToday()}</div>
           </div>
                 <div className="weather-box">
