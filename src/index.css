@@ -86,4 +86,7 @@ main {
 
 .weather-box .weather {
   color: white;
+  font-size: 40px;
+  font-weight: 700;
+  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
 }
