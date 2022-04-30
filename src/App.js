@@ -1,11 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 
+
+//api key not working
 const api = {
-  key: "bf14ea7eee34efe82391c805dbbc9500",
+  key: "a21cc99ae91fd3670323086cda45b306",
   base: "https://api.openweathermap.org/data/2.5"
 }
 
 function App() {
+
+  const [query, setQuery] = useState('');
+  const [weather, setWeather] = useState({});
+
+  const searchbar = (event) => {
+    if (event.key === "Enter") {
+      fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+      .then(res => res.json())
+      .then(result => {
+        setWeather(result);
+        setQuery('');
+        console.log(weather)
+      })
+
+    }
+  }
 
   const dateToday = () => {
       let newDate = new Date()
@@ -23,7 +41,8 @@ function App() {
 
       <main>
         <div className="search-box">
-            <input type="text" className="searchbar" placeholder="Sök..." />
+            <input type="text" className="searchbar" placeholder="Sök..." 
+            onChange={e => setQuery(e.target.value)} value={query} onKeyPress={searchbar}/>
         </div>
         <div className="location-box">
             <div className="location">Stockholm, SE</div>
