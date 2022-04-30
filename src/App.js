@@ -14,12 +14,12 @@ function App() {
 
   const searchbar = (event) => {
     if (event.key === "Enter") {
-      fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
+      fetch(`${api.base}/weather?q=${query}&units=metric&APPID=${api.key}`)
       .then(res => res.json())
       .then(result => {
         setWeather(result);
         setQuery('');
-        console.log(weather)
+        console.log(result)
       })
 
     }
@@ -45,7 +45,7 @@ function App() {
             onChange={e => setQuery(e.target.value)} value={query} onKeyPress={searchbar}/>
         </div>
         <div className="location-box">
-            <div className="location">Stockholm, SE</div>
+            <div className="location">{weather.name}</div>
             <div className="date">{dateToday()}</div>
         </div>
         <div className="weather-box">
