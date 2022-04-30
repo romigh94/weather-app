@@ -1,13 +1,89 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: sans-serif;
+}
+
+.App {
+  background-image: url('./images/cold-background2.jpg');
+  background-size: cover;
+}
+
+.App-warm {
+  background-image: url('./images/sunny-background.jpg');
+  background-size: cover;
+}
+
+main {
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.75));
+  padding: 25px;
+
+}
+
+.search {
+  width: 100%;
+  margin: 0 0 75px;
+}
+
+.search, .searchbar {
+  display: block; 
+  width: 100%;
+  padding: 15px;
+
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 0px 0px 16px 16px;
+  margin-top: -25px;
+
+  box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.search, .searchbar:focus {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.location-box .location {
+  color: white;
+  font-size: 33px;
+  text-align: center;
+  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+  padding-top: 20px;
+}
+.location-box .date {
+  color: white;
+  font-size: 25px;
+  font-style: italic;
+  text-align: center;
+  padding: 10px;
+  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+}
+
+.weather-box {
+  text-align: center;
+}
+
+.weather-box .temp {
+  position: relative;
+  display: inline-block;
+  margin: 30px auto;
+  background-color:rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 15px 25px;
+  font-size: 102px;
+  color: white;
+  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+  box-shadow:  3px 3px rgba(50, 50, 70, 0.5);
+}
+
+.weather-box .weather {
+  color: white;
 }
